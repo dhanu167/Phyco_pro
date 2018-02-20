@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Dashboard <small>Welcome {{session.username}}</small></h1>
+    {% if session.username == 'admin' %}
+        <a href="/add_article" class="btn btn-success btn-s">Add Article</a>
+        <a href="/view_users" class="btn btn-success btn-s">View Users</a>
+        <a href="/view_GA" class="btn btn-success btn-s">View Gaming Addiction Stats</a>
+        <a href="/view_IA" class="btn btn-success btn-s">View Internet Addiction Stats</a>
+        <a href="/view_DAS" class="btn btn-success btn-s">View Depression, Anxiety and Stress Scale</a>
+        <a href="/ga_search_query" class="btn btn-success btn-s">Gaming Search Query</a><br><br>
+        <a href="/ia_search_query" class="btn btn-success btn-s">Internet Search Query</a>
+        <a href="/d_search_query" class="btn btn-success btn-s">Depression Search Query</a>
+        <a href="/a_search_query" class="btn btn-success btn-s">Anxiety Search Query</a>
+        <a href="/s_search_query" class="btn btn-success btn-s">Stress Search Query</a>
+        <hr>
+    {% endif %}
+
+    {% if session.username == 'admin' %}
+        <hr>
+
+     <hr>
+        <h3>View Users</h3>
+
+        <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email-id</th>
+      <th>Username</th>
+      <th>Registered Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for gadetail in gadetails %}
+      <tr>
+        <td>{{gadetail.id}}</td>
+        <td>{{gadetail.name}}</td>
+        <td>{{gadetail.email}}</td>
+        <td>{{gadetail.username}}</td>
+        <td>{{gadetail.register_date}}</td>
+
+      </tr>
+    {% endfor %}
+    </table>
+    <hr>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Dashboard</h1>
+    {% if session.username == 'admin' %}
+        <a href="/add_article" class="btn btn-success btn-s">Add Article</a>
+        <a href="/view_users" class="btn btn-success btn-s">View Users</a>
+        <a href="/view_GA" class="btn btn-success btn-s">View Gaming Addiction Stats</a>
+        <a href="/view_IA" class="btn btn-success btn-s">View Internet Addiction Stats</a>
+        <a href="/view_DAS" class="btn btn-success btn-s">View Depression, Anxiety and Stress Scale</a>
+        <a href="/ga_search_query" class="btn btn-success btn-s">Gaming Search Query</a><br><br>
+        <a href="/ia_search_query" class="btn btn-success btn-s">Internet Search Query</a>
+        <a href="/d_search_query" class="btn btn-success btn-s">Depression Search Query</a>
+        <a href="/a_search_query" class="btn btn-success btn-s">Anxiety Search Query</a>
+        <a href="/s_search_query" class="btn btn-success btn-s">Stress Search Query</a>
+<hr>
+    {% endif %}
+    <h3>Article Detais</h3>
+    <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for article in articles %}
+      <tr>
+        <td>{{article.id}}</td>
+        <td>{{article.title}}</td>
+        <td>{{article.author}}</td>
+        <td>{{article.create_date}}</td>
+           {% if session.username == 'admin' %}
+        <td><a href="edit_article/{{article.id}}" class="btn btn-default pull-right">Edit</a></td>
+        <td>
+            <form action="{{url_for('delete_article', id=article.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+                {% endif %}
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

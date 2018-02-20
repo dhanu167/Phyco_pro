@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Internet Addiction Score</h1>
+<small>Your Internet addiction score </small>
+<hr>
+
+<table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Result</th>
+      <th>Test Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for iav in iaview %}
+      <tr>
+        <td>{{iav.name}}</td>
+        <td>{{iav.score}}</td>
+        <td>{{iav.result}}</td>
+        <td>{{iav.test_date}}</td>
+
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

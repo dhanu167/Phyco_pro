@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2 style="text-align:left;">Welcome {{session.username}}</h2>
+<div class="jumbotron text-center">
+    {% if session.logged_in == NULL %}
+       <h1>Welcome to the Test Page</h1>
+        <p class="lead" style="text-align:justify;">
+            The test can be administered and scored by individuals, but decisions based on particular score profiles for the
+            treatment and management of negative emotional states should be made only by experienced professionals who have
+            carried out an appropriate examination. Participants receiving high scores on the test or who require further
+            information or assistance should seek the advice of a medical professional immediately.<br><br>
+            It is also important to note that none of the questions in the Test refers to suicidal tendencies and therefore
+            suicidality in not assessed in this test. If you feel that you may be at risk or have any thoughts about harming
+            yourself or others then please seek immediate help from a medical professional.
+        </p>
+        <h4>Dont wait, take the Online Test Now!</h4>
+        {% if session.logged_in != NULL %}
+          <a href="/take_test" class="btn btn-primary btn-lg">Take the test</a>
+        {% endif %}
+        {% if session.logged_in == NULL %}
+        <h5>If your a <b>New user</b>, Please Register & login to continue taking test.</h5>
+        {% endif %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% endif %}
+    {% if session.logged_in and session.username != 'admin' %}
+        <h1>Welcome to the Test Page</h1>
+        <p class="lead" style="text-align:justify;">
+            The test can be administered and scored by individuals, but decisions based on particular score profiles for the
+            treatment and management of negative emotional states should be made only by experienced professionals who have
+            carried out an appropriate examination. Participants receiving high scores on the test or who require further
+            information or assistance should seek the advice of a medical professional immediately.<br><br>
+            It is also important to note that none of the questions in the Test refers to suicidal tendencies and therefore
+            suicidality in not assessed in this test. If you feel that you may be at risk or have any thoughts about harming
+            yourself or others then please seek immediate help from a medical professional.
+        </p>
+        <h4>Dont wait, take the Online Test Now!</h4>
+        {% if session.logged_in != NULL %}
+          <a href="/take_test" class="btn btn-primary btn-lg">Take the test</a>
+        {% endif %}
+        {% if session.logged_in == NULL %}
+        <h5>If your a <b>New user</b>, Please Register & login to continue taking test.</h5>
+        {% endif %}
+    {% endif %}
+
+    {% if session.username == 'admin' %}
+        <h1>Welcome to the Admin Page</h1>
+        <h4>Navigate to Dashboard to get more information</h4>
+        <a href="/dashboard" class="btn btn-primary btn-lg">Dashboard</a>
+    {% endif %}
+</div>
+{% endblock %}

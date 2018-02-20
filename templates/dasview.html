@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Depression Anxity Stress Score</h1>
+<small>Your Depression Anxity Stress score </small>
+<hr>
+
+<table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Depression Score</th>
+      <th>Anxity Score</th>
+      <th>Stress Score</th>
+      <th>Depression Result</th>
+      <th>Anxity Result</th>
+      <th>Stress Result</th>
+      <th>Test Date</th>
+      <th></th>
+    </tr>
+    {% for dasv in dasview %}
+      <tr>
+        <td>{{dasv.name}}</td>
+        <td>{{dasv.D_score}}</td>
+        <td>{{dasv.A_score}}</td>
+        <td>{{dasv.S_score}}</td>
+        <td>{{dasv.D_result}}</td>
+        <td>{{dasv.A_result}}</td>
+        <td>{{dasv.S_result}}</td>
+        <td>{{dasv.test_date}}</td>
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

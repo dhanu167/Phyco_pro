@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Gaming Addiction Score</h1>
+<small>Your gaming addiction score are :</small>
+<hr>
+
+<table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Result</th>
+      <th>Test Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for gav in gaview %}
+      <tr>
+        <td>{{gav.name}}</td>
+        <td>{{gav.score}}</td>
+        <td>{{gav.result}}</td>
+        <td>{{gav.test_date}}</td>
+
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

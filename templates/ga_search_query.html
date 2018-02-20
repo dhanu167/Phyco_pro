@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Dashboard <small>Welcome {{session.username}}</small></h1>
+    {% if session.username == 'admin' %}
+        <a href="/add_article" class="btn btn-success btn-s">Add Article</a>
+        <a href="/view_users" class="btn btn-success btn-s">View Users</a>
+        <a href="/view_GA" class="btn btn-success btn-s">View Gaming Addiction Stats</a>
+        <a href="/view_IA" class="btn btn-success btn-s">View Internet Addiction Stats</a>
+        <a href="/view_DAS" class="btn btn-success btn-s">View Depression, Anxiety and Stress Scale</a>
+        <a href="/ga_search_query" class="btn btn-success btn-s">Gaming Search Query</a><br><br>
+        <a href="/ia_search_query" class="btn btn-success btn-s">Internet Search Query</a>
+        <a href="/d_search_query" class="btn btn-success btn-s">Depression Search Query</a>
+        <a href="/a_search_query" class="btn btn-success btn-s">Anxiety Search Query</a>
+        <a href="/s_search_query" class="btn btn-success btn-s">Stress Search Query</a>
+
+
+    {% endif %}
+
+    {% from "includes/_formhelpers.html" import render_field %}
+
+    {% if session.username == 'admin' %}
+     <hr>
+        <form method="POST" action="">
+        <div class="form-group">
+            {{render_field(form.search, class="form-control")}}
+        </div>
+            <p><input type="submit" class = "btn btn-primary" value="Submit"></p>
+    </form>
+    <hr>
+        <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>DOB</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Score</th>
+      <th>Result</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for detail in details %}
+      <tr>
+        <td>{{detail.name}}</td>
+        <td>{{detail.gender}}</td>
+        <td>{{detail.dob}}</td>
+        <td>{{detail.email}}</td>
+        <td>{{detail.ph_no}}</td>
+        <td>{{detail.score}}</td>
+        <td>{{detail.result}}</td>
+        <td>{{detail.test_date}}</td>
+
+      </tr>
+    {% endfor %}
+    </table>
+    <hr>
+{% endif %}
+
+
+{% endblock %}

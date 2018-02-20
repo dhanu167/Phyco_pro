@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+    <h1>Take Test</h1><br>
+    {% if session.logged_in == NULL %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a><br><br>
+    {% endif %}
+      <a href="/IA" class="btn btn-info btn-lg btn-block">Internet Addiction</a><br><br>
+      <a href="/GA" class="btn btn-info btn-lg btn-block">Gaming Addiction</a><br><br>
+      <a href="/DAS" class="btn btn-info btn-lg btn-block">Depression, Anxiety & Stress</a><br><br>
+</div>
+
+{% endblock %}

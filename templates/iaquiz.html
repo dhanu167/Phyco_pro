@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="jumbotron">
+      {% for category, message in get_flashed_messages(with_categories=true) %}
+      <div align="center" class="alert alert-danger">
+        {{ message }}
+      </div>
+      {% endfor %}
+      <form class="form" action="/IA" method="post">
+        <div align="center"><h3>{{ question_number }}.  {{ question }}</h3></div>
+   	<br>
+	<div align="center">
+        {% for option in options  %}
+        <input name="answer" type="submit" class="btn btn-default" value="{{option}}">
+        {% endfor %}
+        </div>
+      </form>
+      <br><br>
+      <div id="question_no">Question: {{ question_number }} / 20</div>
+    </div>
+
+{% endblock %}

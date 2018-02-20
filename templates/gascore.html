@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="jumbo">
+      <div align="center" class="alert alert-success">
+	<h3>Congragulations.....</h3><br>
+	You have successfully completed the Quiz.
+	<br>
+        Your Score is: {{score}}
+      </div>
+        {% if score == 0 and score <= 2 %}
+            <h3>You have no Gaming Addiction.</h3>
+
+        {%endif%}
+
+        {% if score > 2 and score < 5 %}
+            <h3>You might get addicted, As of now try and reduce playing Video games.</h3>
+
+        {%endif%}
+
+        {% if score >= 6 %}
+            <h3> You most likely have an addiction to Video games. </h3>
+
+        {%endif%}
+
+
+
+    </div>
+    
+{% endblock %}
+
+

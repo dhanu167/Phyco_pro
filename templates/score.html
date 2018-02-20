@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="jumbo">
+      <div align="center" class="alert alert-success">
+	<h3>Congragulations.....</h3><br>
+	You have successfully completed the Quiz.
+	<br>
+        Depression: {{D_score}}<br>
+        Anxiety: {{A_score}}<br>
+        Stress: {{S_score}}<br>
+      </div>
+    <div>
+        <p>Your results indicate that your <b>Depression levels</b> are currently at a <b>{{D_result}}</b> level.
+    It is suggested that you continue to monitor and be aware of the symptoms of stress
+    and if you begin experiencing these emotions frequently and strongly you should consider
+            seeking the advice of a medical professional.</p>
+    </div>
+    <hr>
+    <div>
+        <p>Your results indicate that your <b>Anxiety levels</b> are currently at a <b>{{A_result}}</b> level.
+    It is suggested that you continue to monitor and be aware of the symptoms of stress
+    and if you begin experiencing these emotions frequently and strongly you should consider
+            seeking the advice of a medical professional.</p>
+    </div>
+    <hr>
+
+    <div>
+        <p>Your results indicate that your <b>stress levels</b> are currently at a <b>{{S_result}}</b> level.
+    It is suggested that you continue to monitor and be aware of the symptoms of stress
+    and if you begin experiencing these emotions frequently and strongly you should consider
+            seeking the advice of a medical professional.</p>
+    </div>
+
+    <h3>Find Help At</h3>
+    <p><b>Address:</b>9th Main Road, Stage 1, BTM Layout 1, Bengaluru, Karnataka 560076.<br>
+        <b>Phone:</b> 080 2668 5948
+    </p>
+
+
+</div>
+
+{% endblock %}
